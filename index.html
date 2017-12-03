@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tweeting App</title>
+    <script type="text/javascript" src="Codebird.js"></script>
+</head>
+
+<body>
+    <h1 style="text-align:center">Tweeting Application</h1>
+
+    <input id="newt" value="my tweet"></input>
+       <br>
+       <button onclick="tweetTweet()" >Tweet</button>
+
+</body>
+     <script>
+
+        
+        var cb = new Codebird;
+        cb.setConsumerKey('czq6iWb4z3qyRFaaReGJj1AAm', 'potNbwxJ5LrxCJc2RLWFL26uoHwsdG9lVB9DISJOjtsQBtCaoZ');
+        cb.setToken('894469918581825536-KEb4zyI409AKMv8GfZS8e4tNmww7FMz', 'mHgPU3BWikKSK9yCKLKfufwIsnWpo3VpGv4CxmdRCKMVm');
+
+        function tweetTweet(){
+            var tweet = document.getElementById('newt').value;
+            document.getElementById('newt').innerHTML=t
+        var params = {
+           // status: " (^_^)......<3 "
+          
+           status:tweet
+        };
+        cb.__call(
+            "statuses_update",
+            params,
+            function (reply) {
+                console.log(reply);
+                // ...
+            }
+        );
+        }
+    </script> 
+
+
+
+ <!-- <script>
+    function tweetTweet(){
+        var url="https://twitter.com/intent/tweet";
+        var t = document.getElementById('newt').value;
+        document.getElementById('newt').innerHTML=t
+       
+        window.open(url+"?text="+t);
+    }
+</script>   -->
+
+</html>
